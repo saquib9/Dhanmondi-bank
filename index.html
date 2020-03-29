@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Dhaka Bank</title>
+</head>
+<body>
+    
+<div class="container" id="login-area">
+    <h1 class="text-center">Welcome to Dhanmondi</h1>
+        <div class="submit-area">
+            <h4>Log in</h4>
+            <input type="text" class="form-control" placeholder="Username">
+            <br>
+            <input type="password" class="form-control" placeholder="Password">
+            <br>
+            <button id="login" class="btn btn-success" value=""> confirm </button>
+        </div>
+
+
+</div>
+
+<div id="transaction-page" class="container"> 
+    <div class="row">
+        <div class="col-md-4">
+           <div class="col1"> 
+            <h5>Deposit</h5>
+            <h1>$<span id="barao">00</span></h1>
+           </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col2"> 
+                <h5>Withdraw</h5>
+                <h1>$<span id="wdBarao">00</span></h1>
+               </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col3"> 
+                <h5>Balance</h5>
+                <h1>$<span id="balbarao">1200</span></h1>
+               </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col4">
+            <h3>Deposit</h3>
+            <input id="dep-calc" type="text" class="form-control" placeholder="$ You want to deposit">
+            <br>
+            <button id="dep-button" class="btn btn-success">Confirm</button>
+        </div>
+        </div>
+
+        
+        <div class="col-md-6">
+            <div class="col4">
+                <h3>Withdraw</h3>
+                <input id="wd" type="text" class="form-control" placeholder="$ You want to withdraw">
+                <br>
+                <button id="wdraw-button" class="btn btn-success">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+    <script>
+
+        //Login button
+        const loginBtn = document.getElementById("login");
+        loginBtn.addEventListener("click", function(){
+            const loginArea = document.getElementById("login-area");
+            loginArea.style.display = "none";
+            const ureka = document.getElementById("transaction-page");
+            ureka.style.display = "block";
+        })   
+
+        //deposit button
+        const depositBtn = document.getElementById("dep-button")
+        depositBtn.addEventListener("click",function(){
+            const depositCalc =  document.getElementById("dep-calc").value;
+            const depositNum = parseFloat(depositCalc);
+
+            calculate("barao",depositNum)
+            calculate("balbarao",depositNum)
+            document.getElementById("dep-calc").value = "";
+
+        })
+
+        //withdraw button
+        const withdrawbtn = document.getElementById("wdraw-button");
+        withdrawbtn.addEventListener("click",function(){
+            const wdCalc = document.getElementById("wd").value;
+            const wdNum = parseFloat(wdCalc);  
+
+            calculate("wdBarao",wdNum) 
+            calculate("balbarao",-1 * wdNum)
+            document.getElementById("wd").value = "";
+        })
+
+   
+            // const depositOldd = document.getElementById("barao").innerText;
+            // const depositOld = parseFloat(depositOldd);
+            // const depositNew = depositOld + depositNum;
+            // document.getElementById("barao").innerText = depositNew;
+            // const balOldd = document.getElementById("balbarao").innerText;
+            // const balOld = parseFloat(balOldd);
+            // const balNew = balOld + depositNum;
+            // document.getElementById("balbarao").innerText = balNew;
+
+
+        function calculate(id, depositNum){
+            const current = document.getElementById(id).innerText;
+            const amountCurrent = parseFloat(current);
+            const amountNew = amountCurrent + depositNum;
+            document.getElementById(id).innerText = amountNew;
+        }
+
+
+     
+        
+                   
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

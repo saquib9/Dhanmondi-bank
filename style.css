@@ -1,0 +1,47 @@
+body{
+    padding: 150px 100px;
+}
+
+.submit-area{
+    box-shadow: 5px 5px 10px rgb(75, 83, 119);
+    border-radius: 8px;
+    margin-top: 50px;
+    padding: 40px 40px;
+}
+
+#transaction-page{
+    display: none;
+}
+
+
+.col1,.col2,.col3{
+    padding: 30px 25px;
+    margin: 10px 10px;
+    border-radius: 10px;
+
+}
+
+.col1{
+   color: white;
+   background-color: teal;
+}
+
+.col2{
+    color: white;
+    background-color: rgb(53, 199, 199);
+}
+
+.col3{
+    color: white;
+    background-color: rgb(218, 216, 126);
+}
+
+
+.col4{
+   margin: 40px 15px;
+   box-shadow: 0px 0px 5px grey;
+   border-radius: 10px;
+   padding: 25px 30px;
+
+}
+
